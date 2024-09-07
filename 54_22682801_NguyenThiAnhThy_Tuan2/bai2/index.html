@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoko's kitchen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            background-image: url(img/background.png); /* Màu xám nhạt */
+            padding: 20px;
+            text-align: left;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            width: 100px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-left:100px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: white;
+            margin-left:100px;
+        }
+        footer {
+            text-align: left;
+            padding: 1px;
+            background-color: #b0b0b0; 
+            position: relative;
+            color: white;
+        }
+        nav {
+            background-color: #b0b0b0; 
+            padding: 10px 0;
+            text-align: left;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline; /* Gạch chân khi hover */
+        }
+        .home-link {
+            color: black; /* Màu chữ cho Home là đen */
+        }
+        .article {
+            display: flex;
+            padding: 20px;
+            border: 1px solid white;
+            margin: 20px;
+            background-color: white;
+        }
+        .article img {
+            width: 300px; /* Kích thước hình ảnh */
+            height: auto;
+            margin-right: 20px; /* Khoảng cách giữa hình ảnh và văn bản */
+        }
+        .article-content {
+            max-width: 600px; /* Độ rộng tối đa cho nội dung */
+        }
+        .article-title {
+            font-size: 24px;
+            color: black; /* Màu tiêu đề */
+            margin: 0;
+        }
+        .article-subtitle {
+            font-size: 16px;
+            color: #d71081; /* Màu phụ đề */
+            margin: 5px 0;
+        }
+        .article-description {
+            font-size: 14px;
+            color: #333; /* Màu mô tả */
+        }
+        .image-caption {
+            text-align: left; /* Căn giữa chữ caption */
+            font-size: 14px; /* Kích thước chữ */
+            color: #333; /* Màu chữ */
+            margin-top: 5px; /* Khoảng cách giữa hình ảnh và caption */
+        }
+        section {
+            float: left;
+            width: 70%;
+            padding: 10px;
+            box-sizing: border-box;
+            
+        }
+        section.section1{color: #d71081;}
+        .section h2 {
+            font-size: 24px;
+            color: #d5006d; /* Màu tiêu đề */
+            margin: 0 0 10px; /* Khoảng cách dưới tiêu đề */
+        }
+        .section p {
+            font-size: 14px;
+            color: #333; /* Màu chữ */
+            margin: 5px 0; /* Khoảng cách giữa các dòng */
+        }
+        aside {
+            float: right;
+            width: 25%;
+            border: 1px dashed rgb(255, 255, 255);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        article {
+            border: 1px dashed red;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        footer {
+            clear: both;
+        }
+        @media (max-width: 768px) {
+            section, aside {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../bai2/img/logo.png" alt="Logo" class="logo">
+            <h1 class="title">YOKO'S KITCHEN</h1>
+            <p class="subtitle">JAPANESE COOKING CLASSES</p>
+        </header>
+        <nav>
+            <a href="#" class="home-link">Home</a>
+            <a href="#">Classes</a>
+            <a href="#">Catering</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <section>
+            <article class="article">
+                <div>
+                    <img src="../bai2/img/bokchoi.jpg" alt="Bok Choi">
+                <div class="image-caption">Bok Choi</div>
+                </div>
+                <div class="article-content">
+                    <h2 class="article-title">Japanese Vegetarian</h2>
+                    <h3 class="article-subtitle">Five week course in London</h3>
+                    <p class="article-description">
+                        A five week introduction to traditional Japanese vegetarian meals, teaching you a selection of rice and noodle dishes.
+                    </p>
+                
+                </div>
+            </article>
+        </article>
+
+        <article class="article">
+            <div>
+                <img src="../bai2/img/teriyaki.jpg" alt="Teriyaki Sauce">
+                <div class="image-caption">Teriyaki Sauce</div> <!-- Đặt caption dưới hình ảnh -->
+            </div>
+            <div class="article-content">
+                <h2 class="article-title">Sauces Masterclass</h2>
+                <h3 class="article-subtitle">One day workshop</h3>
+                <p class="article-description">
+                    An intensive one-day course looking at how to create the most delicious sauces for use in a range of Japanese cookery.
+                </p>
+            </div>
+        </article>
+        </section>
+        <aside>
+            <section class="section1">
+                <h2>Popular Recipes</h2>
+                <p>Yakitori (grilled chicken)</p>
+                <p>Tsukune (minced chicken patties)</p>
+                <p>Okonomiyaki (savory pancakes)</p>
+                <p>Minutaki (chicken stew)</p>
+            </section>
+            <section class="section">
+                <h2>Contact</h2>
+                <p>Yoko's Kitchen</p>
+                <p>27 Redchurch Street</p>
+                <p>Shoreditch</p>
+                <p>London E2 7DP</p>
+            </section>
+        </aside>
+        <footer>
+            <p>© 2011 Yoko's Kitchen</p>
+        </footer>
+    </div>
+</body>
+</html>

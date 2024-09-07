@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgba(192, 0, 0, 0.718);
+            font-style: italic;
+        }
+        .shadow-text {
+            font-size: 48px; 
+            color: #e60b0b; 
+            text-shadow:     
+            6px 6px 0 rgba(233, 11, 11, 0.3); 
+        }
+        .navbar {
+            justify-content: center;
+            display: flex;
+            align-items: center; /* Căn giữa theo chiều dọc */
+            padding: 10px;
+            background-color: #f8b4b4; /* Màu nền hồng nhạt */
+        }
+        .nav-links {
+            display: flex; /* Bố trí các liên kết theo hàng ngang */
+            list-style: none; /* Bỏ dấu chấm */
+            padding: 0; /* Bỏ padding */
+            margin: 0; /* Bỏ margin */
+        }
+        .nav-links li {
+            margin: 0 15px; /* Khoảng cách giữa các liên kết */
+        }
+        .nav-links a {
+            text-decoration: none; /* Bỏ gạch chân */
+            color: #fff; /* Màu chữ trắng */
+            font-weight: bold; /* Chữ đậm */
+        }
+        .search-container {
+            display: flex; /* Bố trí ô tìm kiếm */
+            align-items: center; /* Căn giữa theo chiều dọc */
+        }
+        .search-container input[type="text"] {
+            padding: 5px; /* Khoảng cách bên trong ô tìm kiếm */
+            border: none; /* Bỏ viền */
+            border-radius: 3px; /* Bo góc */
+        }
+        .search-container button {
+            padding: 5px 10px; /* Khoảng cách bên trong nút */
+            background-color: gray; /* Màu nền nút */
+            color: white; /* Màu chữ nút */
+            border: none; /* Bỏ viền */
+            border-radius: 3px; /* Bo góc */
+            cursor: pointer; /* Hiển thị con trỏ khi hover */
+        }
+        .search-container button:hover {
+            background-color: #c4005e; /* Màu nền nút khi hover */
+        }
+        .main-content {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            justify-content: center;
+        }
+        .sidebar {
+            background-color: white; /* Nền trắng cho sidebar */
+            padding: 20px;
+            border-radius: 12px; /* Bo góc cho sidebar */
+            max-width: 250px;
+            margin-right: 20px;
+        }
+        .menu-item {
+            font-weight: bold;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 8px; /* Bo góc cho các mục */
+            color: #000; /* Chữ màu đen */
+        }
+        .menu-item-highlight {
+            background-color: #f8b4b4; /* Màu nền hồng cho các mục */
+        }
+        .menu-item-white {
+            background-color: white; /* Nền trắng cho mục cụ thể */
+            color: #ffb700; /* Chữ màu đen */
+        }
+        
+        .oval {
+            width: 200px;
+            height: 100px; /* Chiều cao hình oval */
+            border-radius: 50%; /* Bo góc thành hình oval */
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-top: 20px; /* Khoảng cách trên hình oval */
+            background-image: url(img/meeting.png); /* Thay thế bằng URL hình ảnh của bạn */
+            background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ hình oval */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .article {
+            background-color: white;
+
+        }
+        .header {
+            color: rgb(159, 17, 17);
+            background-color: #f8b4b4;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 24px; 
+        }
+        .back-to-top {
+            text-align: left;
+            margin-top: 20px;
+            color: #e60b0b;
+        }
+        .events {
+            background-color: black; /* Nền đen cho phần events */
+            color: white; /* Chữ trắng cho phần events */
+            padding: 20px;
+            border-radius: 8px;
+            margin-left: 20px;
+            max-width: 250px;
+            height: 70%;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+        }
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .info-box {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+           
+        }
+        .info-header {
+            color: #d5006d;
+            background-color: #f8b4b4;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            letter-spacing: 2px;
+            font-size: 24px;
+        }
+        .form-area {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            flex: 1; /* Chiếm không gian còn lại */
+            margin-right: 10px; /* Khoảng cách giữa các trường */
+        }
+        .input-group textarea {
+            flex: 2; /* Chiếm không gian lớn hơn cho textarea */
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-start; /* Căn trái cho nút */
+            margin-top: 10px;
+        }
+        .button-container button {
+            padding: 8px 12px; /* Kích thước nhỏ hơn */
+            background-color: gray; /* Màu nền xám */
+            color: black; /* Chữ đen */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px; /* Khoảng cách giữa các nút */
+            font-size: 14px; /* Kích thước chữ nhỏ hơn */
+        }
+        .button-container button:hover {
+            background-color: darkgray; /* Màu nền khi hover */
+        }
+        .radio-buttons {
+            margin: 10px 0; /* Khoảng cách trên và dưới nhóm radio */
+        }
+        .radio-buttons label {
+            margin-right: 20px; /* Khoảng cách giữa các label */
+        }
+        .compact-select {
+            width: 150px; /* Kích thước nhỏ cho select country */
+            margin-right: 10px; /* Khoảng cách với radio group */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="shadow-text">EXAMPLE CAFE MENU</h1>
+    </header> 
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#"><img src="../bai1/img/icons8-home-50.png" alt="Home" width="20px"></a></li>
+            <li><a href="#">STARTERS</a></li>
+            <li><a href="#">MAIN COURSES</a></li>
+            <li><a href="#">DESSERTS</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" placeholder="">
+            <button type="button">Go</button>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <div class="menu-item menu-item-highlight">Café Latte</div>
+            <div class="menu-item menu-item-highlight">Espresso</div>
+            <div class="menu-item menu-item-highlight">Cappuccino</div>
+            <div class="menu-item menu-item-highlight">Iced Americano</div>
+            <div class="menu-item menu-item-highlight">Hazelnut Blend</div>
+            <div class="oval"></div>
+        </div>
+
+        <div class="content-container">
+            <div class="article">
+                <div class="header">S t a r t e r</div>
+                <ul>
+                    <p class="menu-item">Cheese and Mushroom Quesadilla <span>(0)</span></p>
+                    <p class="menu-item">Grilled Chicken <span>(0)</span></p>
+                    <p class="menu-item menu-item-white">HONEY SOY CHICKEN KEBAB <span>(1)</span></p>
+                    <p class="menu-item">Seafood Salad <span>(0)</span></p>
+                </ul>
+                <div class="back-to-top">
+                    <a href="#" style="text-decoration: none;">Back to Top</a>
+                </div>
+            </div>
+            
+            <div class="article">
+                <div class="header">D e s s e r t s</div>
+                <ul>
+                    <p class="menu-item">Lemon Sorbet <span>(1)</span></p>
+                    <p class="menu-item">Chocolate Mud Pie <span>(1)</span></p>
+                    <p class="menu-item">Pecan Pie <span>(1)</span></p>
+                    <p class="menu-item">Selection of fine Cheeses from Around the World <span>(0)</span></p>
+                </ul>
+                <div class="back-to-top">
+                    <a href="#" style="text-decoration: none;">Back to Top</a>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="form-section">
+                    <div class="info-box">
+                        <h2 class="info-header">I N F O R M A T I O N</h2>
+                        <div class="form-area">
+                            <div class="input-group">
+                                <input type="text" placeholder="First Name" required>
+                                <input type="text" placeholder="Last Name" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" placeholder="Email" required>
+                                <input type="tel" placeholder="Telephone" required>
+                            </div>
+                            <div class="input-group">
+                                <select class="compact-select" required>
+                                    <option value="" disabled selected>Select Country</option>
+                                    <option value="USA">USA</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="radio-buttons">
+                                    <label>
+                                        <input type="radio" name="nationality" value="Vietnamese" required>
+                                        Vietnamese
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="nationality" value="Foreigner">
+                                        Foreigner
+                                    </label>
+                                </div>
+                            </div>
+                            <textarea placeholder="Comment" rows="4"></textarea>
+                            <div class="button-container">
+                                <button type="submit">Submit</button>
+                                <button type="button" onclick="window.location.reload();">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="events">
+            <h3>Events</h3>
+            <p><strong>Regular Meetings</strong><br>
+                <img src="img/meeting.png" width="200px" srcset="">
+                Host your regular team meetings or activities in the comfort of your own private room. <br><a href="#" style="color: #d5006d;">Read more...</a></p>
+            <p><strong>Product Launches</strong>
+                <img src="img/meeting.png" width="200px" alt="" srcset="">
+                <br>Launch your product with us in a space that truly fits its image. <br> <a href="#" style="color: #d5006d;">Read more...</a></p>
+        </div>
+    </div>
+</body>
+</html>

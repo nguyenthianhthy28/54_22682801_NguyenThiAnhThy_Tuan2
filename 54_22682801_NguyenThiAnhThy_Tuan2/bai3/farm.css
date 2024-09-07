@@ -1,0 +1,89 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(img/background.jpg);
+}
+
+header {
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    margin-left: 10px;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    color: green;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid green;
+}
+
+.section {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: white;
+}
+
+.section h3 {
+    font-size: 1.5em;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    list-style-type: disc;
+}
+
+.promo-photo {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    width: 300px; /* Đặt chiều rộng cho ảnh quảng cáo */
+}
+
+.promo-photo img {
+    width: 200px;
+    height: auto;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between; /* Đặt khoảng cách giữa nội dung và ảnh quảng cáo */
+}
+footer{
+    color: white;
+    text-align: center;
+    border-top: 2px solid green;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
